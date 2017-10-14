@@ -2,8 +2,7 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const fs = require("fs");
-var conffile = fs.readFileSync("./config/config.json");
-var conf = JSON.parse(conffile);
+var conf = JSON.parse(fs.readFileSync("./config/config.json"));
 const client = new Discord.Client();
 
 // Setup
@@ -30,7 +29,7 @@ bot.on('message', message =>
  {
    message.channel.send({embed: {
     color: 3447003,
-    title: "WaterBot Help",
+    title: conf.name + " Help",
     description: "For more information about a specific command, use ``" + conf.prefix + "help [command]``",
     fields: [{
         name: "Fun",
@@ -99,7 +98,7 @@ bot.on('message', message =>
  // SetGame Command
  if(command == "setgame")
  {
-   if(message.author.id == "210794545015685121")
+   if(message.author.id == conf.ownerID)
    {
     bot.user.setPresence({ game: { name: args.join(" "), type: 0 } });
      message.channel.send(":white_check_mark: Set game to \"" + args.join(" ") + "\".");
@@ -118,26 +117,6 @@ bot.on('message', message =>
        color: 3447003,
        title: "User Info",
        description: "is someone doing a thing? get some info!",
-       fields: [{
-           name: "Fun",
-           value: conf.prefix + "ping\n",
-           inline: true
-         },
-         {
-           name: "Misc",
-           value: conf.prefix + "help\n" + conf.prefix + "uptime\n",
-           inline: true
-         },
-         {
-           name: "Staff",
-           value: conf.prefix + "rm\n",
-           inline: true
-         },
-         {
-             name: "Bot Owner",
-             value: conf.prefix + "setgame\n",
-           }
-       ],
      }
    });
     }
@@ -146,8 +125,8 @@ bot.on('message', message =>
     {
       message.channel.send({embed: {
   color: 3447003,
-  title: "WaterBot Uptime",
-  description: "WaterBot has been online for " + Math.round(((process.uptime() / 60) * 10^1) / 10^1) + "m."
+  title: conf.name + " Uptime",
+  description: conf.name + " has been online for " + Math.round(((process.uptime() / 60) * 10^1) / 10^1) + "m."
       }});
     }
 });
