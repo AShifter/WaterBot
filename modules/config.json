@@ -1,0 +1,7 @@
+{
+  "token": "BOT_TOKEN_HERE",
+  "prefix": "wb:",
+  "name": "WaterBot",
+  "ownerID": "OWNER_ID_HERE",
+  "embedColor":"#146eff"
+}

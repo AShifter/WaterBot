@@ -1,7 +1,0 @@
-{
-  "token": "BOT_TOKEN_HERE",
-  "prefix": "wb:",
-  "name": "WaterBot",
-  "pingResponses":["Pong!", "Plink Plong.", "Poooong!", "Pong Ping!", "Ping - oops.", "No.", "How would you feel if random people kept saying ping to you? It get's annoying.", "I don't wanna respond the way you want me to.", "I'm gonna break the chain.", "Ponggggggggggggggggggg"],
-  "ownerID": "OWNER_ID_HERE"
-}
