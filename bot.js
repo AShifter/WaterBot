@@ -29,6 +29,10 @@ bot.on('message', message =>
   let args = array.slice(1);
   // Pass command to correct module
   let cmd = client.commands.get(command.slice(conf.prefix.length))
-  if (cmd){cmd.run(client, message, args)}
+  if (cmd){cmd.run(client, message, args, bot)}
+  else
+  {
+    message.reply(`:no_entry_sign: That command doesn't exist. To get a list of commands, type \`${conf.prefix}help.\``);
+  }
 });
 bot.login(conf.token);
