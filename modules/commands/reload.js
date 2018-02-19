@@ -1,4 +1,4 @@
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, bot) => {
     let command;
     if (client.commands.has(args[0])) {
         command = args[0];
@@ -9,14 +9,22 @@ module.exports.run = async (client, message, args) => {
         let cmd = require(`./${command}`);
         client.commands.delete(command);
         client.commands.set(command, cmd);
-        message.reply(`:white_check_mark: **The ${command} command has been reloaded!**`)
+        if(command == "reload")
+        {
+            message.reply(":white_check_mark: yo dawg, i heard you liked reloading so i reloaded your reload so you can reload while you reload");
+        }else
+        {
+            message.reply(`:white_check_mark: **The ${command} command has been reloaded!**`)
+        }
     } catch (e) {
-        message.channel.send('An error has occured while reloading this module. The error has been logged to the console.');
+        message.channel.send('An error has occured while reloading this module. This error has been logged to the console.');
         console.log(e);
     }
 }
-module.exports.help = {
+module.exports.help = 
+{
     name: "reload",
     args: "[./filename.js]",
-    notes: "Restarts a specified command."
+    notes: "Restarts a specified command.",
+    category: "Utility"
 }
