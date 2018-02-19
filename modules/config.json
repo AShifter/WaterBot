@@ -1,8 +1,8 @@
 {
-  "token": "NDE0OTAxMDM4MjMxOTc3OTg0.DWuGfw.K_JoPWZ99U7nrs-H5VSQNY6Xf6E",
-  "prefix": "wbf:",
-  "name": "WaterBot Fire",
-  "version": "2.0 RC1",
+  "token": "TOKEN_HERE",
+  "prefix": "wb:",
+  "name": "WaterBot",
+  "version": "2.0",
   "ownerID": "210794545015685121",
-  "embedColor":"#ff5d00"
+  "embedColor":"BLUE"
 }
