@@ -8,7 +8,7 @@ After cloning the repo, open ``bot.js``. Open that file in a text editor of your
 This bot was written for Node.JS v8.9.4 LTS and assumes that you have it installed. All required packages are included, so simply navigate to the folder where ``bot.js`` is located, and run ``node bot.js`` to start it up. If configured correctly, WaterBot Mini should start working but will not give any console feedback.
 
 ## Writing new modules
-WaterBot Mini is modular - this means that you can write "modules" for it, and place them in ``/commands/`` to load them automatically. Though the command loader is very much based on WaterBot 2.0, it has been extremely minimized. **It is not forgiving, what-so-ever.** if you do something wrong, things WILL break and we won't tell you what did. *If you thought I was joking with WaterBot, just give this a try.* With that out of the way, here's how you do it: 
+WaterBot Mini is modular - this means that you can write "modules" for it, and place them in ``/commands/`` to load them automatically. Though the command loader is very much based on WaterBot 2.0, but it has been extremely minimized. **It is not forgiving, what-so-ever.** if you do something wrong, things WILL break and we won't tell you what did. *If you thought I was joking with WaterBot, just give this a try.* With that out of the way, here's how you do it: 
 
 Create a new file or drag-and-drop an existing PJS public command module into ``/commands/``.
 If you're creating a new file, here's a template to get you started:
