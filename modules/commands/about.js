@@ -2,8 +2,8 @@ module.exports.run = async (client, message, args, bot) =>
 {
     const conf = require("../config.json");
     const Discord = require('discord.js');
-    const embed = new Discord.RichEmbed()
 
+    const embed = new Discord.RichEmbed()
     .setColor(conf.embedColor)
     .setTitle(`${conf.name} ${conf.version} | About`)
     .setDescription(`${conf.name} was made possible by the following:\n`)

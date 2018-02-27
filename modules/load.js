@@ -1,4 +1,4 @@
-module.exports.run = async (client, fs, commands, bot) =>
+module.exports.run = async (client, fs, commands) =>
 {
     fs.readdir("./modules/commands/", (err, files) =>
     {

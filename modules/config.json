@@ -1,7 +1,23 @@
 {
-  "token": "BOT_TOKEN_HERE",
+  "token": "BOT_TOKEN",
   "prefix": "wb:",
   "name": "WaterBot",
-  "ownerID": "OWNER_ID_HERE",
-  "embedColor":"#146eff"
+  "version": "2.1 RC1",
+  "presence":
+  [
+      "with Peacebot's hair",
+      "with AstralMod's nose",
+      "with PrecipitationJS' eyes",
+      "with octi's ears",
+      "with ban buttons",
+      "music",
+      "minceraft",
+      "The Peacenet",
+      "ShiftOS",
+      "Histacom",
+      "that game where you build stuff",
+      "boldly where no bot has played before"
+  ],
+  "ownerID": "OWNER_ID",
+  "embedColor":"#2885FC"
 }

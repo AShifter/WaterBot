@@ -9,8 +9,16 @@ module.exports.run = async (client, message, args, bot) =>
     }
     else
     {
-        bot.user.setGame(args.join(" "));
-        message.reply(`:white_check_mark: **Set my presence to \`${args.join(" ")}\`.**`);
+        try
+        {
+            client.user.setActivity(args.join(" "));
+            message.reply(`:white_check_mark: **Set my presence to \`${args.join(" ")}\`.**`);
+        }
+        catch (e)
+        {
+            message.reply("Looks like there was an error. Check the log for details.");
+            console.log(e);
+        }
     }
 }
 
