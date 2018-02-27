@@ -14,6 +14,7 @@ client.on('ready', () =>
 {
   console.log("Connected to Discord! Client ID: " + client.user.id);
   var randomGame = conf.presence[Math.floor(Math.random() * conf.presence.length)];
+  console.log("Set Game to: " + randomGame);
   try {client.user.setActivity(randomGame)}
   catch (e){console.log(e)}
 });
