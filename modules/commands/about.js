@@ -4,8 +4,8 @@ module.exports.run = async (client, message, args, bot) =>
     const Discord = require('discord.js');
     const os = require('os');
 
-    var mem = os.totalmem() / 1000000;
-    var memfree = os.freemem() / 1000000;
+    var mem = os.totalmem() / 1048576;
+    var memfree = os.freemem() / 1048576;
     const embed = new Discord.RichEmbed()
     .setColor(conf.embedColor)
     .setTitle(`${conf.name} ${conf.version} | About`)
