@@ -1,0 +1,23 @@
+{
+  "name": "waterbot",
+  "version": "2.1.0",
+  "description": "A discord moderation bot",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^11.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AShifter/WaterBot.git"
+  },
+  "author": "AShifter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AShifter/WaterBot/issues"
+  },
+  "homepage": "https://github.com/AShifter/WaterBot#readme"
+}
