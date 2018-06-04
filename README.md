@@ -2,7 +2,10 @@
 Moderation bot for the Watercolor Games Discord.
 
 ## Setup
-After cloning the repo, navigate to ``/modules/config.json``. Open that file in a text editor of your choice. In the ``token`` field, paste your Bot User's token, preserving the double-quotes. Make any other changes if desired, such as changing the bot's prefix, default embed color, or even name.
+After cloning the repo, navigate to ``/modules/config_template.json``. Open that file in a text editor of your choice. Make any changes you'd like to customize the bot - changing the Owner ID is highly recommended. After that, rename the file to ``config.json``. Make a ``.env`` file with a ``token`` field, and add your token as a string.
+
+*In ``.env``*
+``token="BOT_TOKEN"``
 
 ## Running
 This bot was written for Node.JS v8.9.4 LTS and assumes that you have it installed. All required packages are included, so simply navigate to the folder where ``bot.js`` is located, and run ``node bot.js`` to start it up. If configured correctly, WaterBot should state that it correctly connected to Discord.
@@ -14,7 +17,7 @@ Create a new file or drag-and-drop an existing PJS public command module into ``
 If you're creating a new file, here's a template to get you started:
 
 ```js
-module.exports.run = async (client, message, args, bot) =>
+module.exports.run = async (client, message, args) =>
 {
     // Module Code
 }
