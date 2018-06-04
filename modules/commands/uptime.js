@@ -1,26 +1,21 @@
-const conf = require("../config.json");
-module.exports.run = async (client, message, args, bot) => 
+const moment = require('moment');
+require('moment-duration-format');
+const Discord = require("discord.js")
+const { version } = require('discord.js');
+module.exports.run = async (client, message, args) =>
 {
-	String.prototype.toHHMMSS = function () { 
-		let secNum = parseInt(this, 10); 
-	  let hours = Math.floor(secNum / 3600); 
-	  let minutes = Math.floor((secNum - (hours * 3600)) / 60); 
-	  let seconds = secNum - (hours * 3600) - (minutes * 60);
-	   if (hours < 10) hours = "0" + hours; 
-	   if (minutes < 10) minutes = "0" + minutes;
-	   if (seconds < 10) seconds = "0" + seconds;
-	   let time = hours + ':' +minutes+ ':' + seconds;
-	   return time;
-	    }
-	    let time = process.uptime();
-	    let formattedTime = (time + "").toHHMMSS();
-	    message.channel.send(`:clock2: ${conf.name} has been online for ${formattedTime} hours.`);
+    const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
+    var embed = new Discord.RichEmbed()
+.setAuthor(`Uptime`)
+.setColor('RANDOM')
+.setDescription(`Uptime **>** ${duration}\n\n:desktop:`)
+.setTimestamp();
+    message.channel.send(embed);
 }
-
 module.exports.help = 
 {
     name: 'uptime',
     args: '[none]',
-    notes: `Sends the uptime of ${conf.name}.`,
+    notes: `Sends the uptime of WaterBot.`,
     category: 'Basic'
 }

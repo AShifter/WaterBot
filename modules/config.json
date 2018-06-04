@@ -1,8 +1,7 @@
 {
-  "token": "BOT_TOKEN",
-  "prefix": "wb:",
-  "name": "WaterBot",
-  "version": "2.1 RC1",
+  "prefix": "wbf:",
+  "name": "WaterBot Fire",
+  "version": "2.2 Alpha",
   "presence":
   [
       "with Peacebot's hair",
@@ -18,6 +17,6 @@
       "that game where you build stuff",
       "boldly where no bot has played before"
   ],
-  "ownerID": "OWNER_ID",
-  "embedColor":"#2885FC"
+  "ownerID": "210794545015685121",
+  "embedColor":"#FF5D00"
 }

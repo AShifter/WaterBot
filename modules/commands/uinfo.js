@@ -1,4 +1,4 @@
-module.exports.run = async (client, message, args, bot) =>
+module.exports.run = async (client, message, args) =>
 {
     const conf = require('../config.json');
     const Discord = require('discord.js');
@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args, bot) =>
 }
 module.exports.help = {
     name: 'uinfo',
-    args: '[pinged] (Optional)',
+    args: '[pinged] (optional)',
     notes: 'Provides a basic set of information about a specfic user.',
     category: 'Information'
 }

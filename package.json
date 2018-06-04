@@ -4,7 +4,10 @@
   "description": "A discord moderation bot",
   "main": "bot.js",
   "dependencies": {
-    "discord.js": "^11.3.0"
+    "discord.js": "^11.3.0",
+    "dotenv": "^6.0.0",
+    "moment": "^2.22.1",
+    "moment-duration-format": "^2.2.2"
   },
   "devDependencies": {},
   "scripts": {

@@ -1,4 +1,4 @@
-module.exports.run = async (client, message, args, bot) =>
+module.exports.run = async (client, message, args) =>
 {
     const conf = require("../config.json");
 	const Discord = require('discord.js');
@@ -50,7 +50,6 @@ module.exports.run = async (client, message, args, bot) =>
 		}
 	}catch(e)
 	{
-		message.channel.send("For some horrifying reason, we managed to mess up SO HARD that we couldn't show you a help screen. What a pity. Check the logs.");
 		console.log(e);
 	}
 }

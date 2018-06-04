@@ -1,4 +1,4 @@
-module.exports.run = async (client, message, args, bot) => {
+module.exports.run = async (client, message, args) => {
     let command;
     if (client.commands.has(args[0])) {
         command = args[0];
