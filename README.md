@@ -2,7 +2,7 @@
 Moderation bot for the Watercolor Games Discord.
 
 ## Setup
-After cloning the repo, navigate to ``/modules/config_template.json``. Open that file in a text editor of your choice. Make any changes you'd like to customize the bot - changing the Owner ID is highly recommended. After that, rename the file to ``config.json``. Make a ``.env`` file with a ``token`` field, and add your token as a string.
+After cloning the repo, navigate to ``/modules/config_template.json``. Open that file in a text editor of your choice. Make any changes you'd like to customize the bot - changing the Owner ID is highly recommended. After that, rename the file to ``config.json``. Rename ``example.env`` to ``.env`` using the command line. To fill in the ``token`` field, and add your token as a string.
 
 *In ``.env``*
 ``token="BOT_TOKEN"``
