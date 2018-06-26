@@ -13,10 +13,5 @@ module.exports.messageSent = async (client, message, conf) =>
 
 module.exports.messageDelete = async (client, message, conf) =>
 {
-    fs.readFile(__dirname + "/modules/guilds.json", function (err, content)
-    {
-        let guildArray = JSON.parse(content);
-        if (message.channel.id == guildArray.guilds[message.guild.id].chatLogChannel) return;
-        if (!guildArray.guilds[message.guild.id] || guildArray.guilds[message.guild.id].chatLogChannel == undefined) return;
-    })
+    // TBI
 }
