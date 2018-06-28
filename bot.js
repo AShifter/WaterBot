@@ -13,7 +13,7 @@ fs.readdir("./modules/commands/", (err, files) =>
     let modules = files.filter(f => f.split(".").pop() === "js");
     modules.forEach((f, i) => 
     {
-        let props = require(`./commands/${f}`);
+        let props = require(`./modules/commands/${f}`);
         try{client.commands.set(props.help.name, props)}
         catch(err){console.log('One or more of your modules caused an error.\n=> ' + err); process.exit(1)}
     })
@@ -44,6 +44,11 @@ client.on('messageDelete', message =>
   if (message.cleanContent.length < 1) return;
   if (message.cleanContent.length > 1022) return;
   Events.messageDelete(client, message, conf);
+});
+
+client.on('guildCreate', guild =>
+{
+  Events.guildCreate(guild);
 });
 
 client.login(process.env.token);
