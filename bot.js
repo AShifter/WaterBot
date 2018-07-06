@@ -1,10 +1,8 @@
-const client = new (require("discord.js")).Client();
-client.commands = new (require("discord.js")).Collection();
-require("fs").readdir("./commands/", (err, files) => {
+const client = new(require("discord.js")).Client();
+client.cmds = new(require("discord.js")).Collection();
+require("fs").readdir("./cmd/", (err, files) => {
     files.filter(f => f.split(".").pop() === "js").forEach((f, i) => {
-    let props = require(`./commands/${f}`);
-client.commands.set(props.help.name, props)})});
-    client.on('message', message => {
-    let cmd = client.commands.get(message.content.split(" ")[0].slice(4));
-    if (cmd && message.content.startsWith("wbm:")){cmd.run(client, message)}});
-client.login("BOT_TOKEN");
+    client.cmds.set(require(`./cmd/${f}`).help.name, require(`./cmd/${f}`))})});
+client.on('message', m => {if(m.content.startsWith("wbm:"))
+    {client.cmds.get(m.content.split(" ")[0]).run(client, m)}});
+client.login("This_is_the_same_size_as_a_discord_bot_token,_so_that's_fun");
