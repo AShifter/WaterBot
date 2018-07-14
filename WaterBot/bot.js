@@ -1,7 +1,7 @@
 // Main definitions
-const dotenv = require("dotenv").config();
+const dotenv = require("dotenv").config({path:"./modules/.env"});
 const Discord = require("discord.js");
-const Events = require ("./modules/events.js");
+const Events = require ("./modules/services/events.js");
 const conf = require('./modules/config.json');
 const fs = require("fs");
 const client = new Discord.Client();
