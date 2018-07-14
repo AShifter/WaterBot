@@ -66,7 +66,7 @@ module.exports.guildCreate = async (guild) =>
             guild.channels.find(c => c.name == 'general').send(
                 new Discord.RichEmbed()
                 .setTitle(`Welcome to ${conf.name}!`)
-                .setDescription(`Hello! I'm ${conf.name}, a Discord moderation bot. Before you can use extended features like message logging, you will have to run setup. To do so, run \`\`${conf.prefix}setup\`\`. Only \<\@${guild.owner.id}\> or someone with \`\`Administrator\`\` permissions may run this command.`)
+                .setDescription(`Hello! I'm ${conf.name}, a Discord moderation bot. Before you can use extended features like message logging, you will have to run setup. To do so, run \`\`${conf.prefix}setup\`\`. Only \<\@${guild.owner.id}\> or someone with \`\`Administrator\`\` permissions may run this command. If you run setup, we will automatically cache your guild. This will allow me to log all deleted and edited messages on your server, as well as user information. Sensitive information will not leave this server. If you do not agree with these terms, this bot will leave the server.`)
                 .setColor(conf.embedColor)
                 .setFooter(`${conf.name} ${conf.version}`)
                 .setTimestamp()

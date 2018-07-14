@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args) =>
 }
 module.exports.help = {
     name: 'uinfo',
-    args: '[pinged] (optional)',
+    args: '[mention] (optional)',
     notes: 'Provides a basic set of information about a specfic user.',
     category: 'Information'
 }
