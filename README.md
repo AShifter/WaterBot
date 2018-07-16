@@ -2,10 +2,7 @@
 Moderation bot for the Watercolor Games Discord.
 
 ## Setup
-After cloning the repo, navigate to ``/modules/config_template.json``. Open that file in a text editor of your choice. Make any changes you'd like to customize the bot - changing the Owner ID is highly recommended. After that, rename the file to ``config.json``. Rename ``example.env`` to ``.env`` using the command line. To fill in the ``token`` field, and add your token as a string.
-
-*In ``.env``*
-``token="BOT_TOKEN"``
+After cloning the repo, navigate to ``/modules/config_template.json``. Open that file in a text editor of your choice. Make any changes you'd like to customize the bot - changing the Owner ID is highly recommended. After that, rename the file to ``config.json``. Rename ``example.env`` to ``.env`` using the command line. To fill in the ``token`` field, and add your token as a string. Finally, if you wish to use message logging features, rename ``guilds_template.json`` to ``guilds.json``. No further modification is required.
 
 ## Running
 This bot was written for Node.JS v8.9.4 LTS and assumes that you have it installed. All required packages are included, so simply navigate to the folder where ``bot.js`` is located, and run ``node bot.js`` to start it up. If configured correctly, WaterBot should state that it correctly connected to Discord.
@@ -31,10 +28,6 @@ module.exports.help =
 }
 ```
 
-Simply fill out the top "section" with all of your code and the bottom with metadata. Assuming the file is in the correct directory and has no errors, it should load and should work just fine.
+Simply fill out the top "section" with all of your code and the bottom with metadata. Assuming the file is in the correct directory and has no errors, it should load and should work just fine. If you're using a PJS public command, it **should** be drag-and-drop, but may lack some WaterBot Specific features (like global embed colors) without modification.
 
-If you're using a PJS public command, it **should** be drag-and-drop, but may lack some WaterBot Specific features (like global embed colors) without modifiaction.
-
-Many of the modules in WaterBot were graciously provided by Richard Moch, the only developer of the excellent PrecipitationJS Discord bot. Thanks mate! :P
-
-I will be adding more info here soon, but for now, have fun!
+Many of the modules in WaterBot were graciously provided by Richard Moch, developer of the excellent PrecipitationJS Discord bot.
