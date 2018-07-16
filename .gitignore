@@ -1,6 +1,7 @@
 # Private Stuff
 .env
 config.json
+guilds.json
 
 # Logs
 logs
