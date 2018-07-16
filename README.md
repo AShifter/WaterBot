@@ -1,5 +1,5 @@
 # WaterBot
-Moderation bot for the Watercolor Games Discord.
+The easy Discord bot.
 
 ## Setup
 After cloning the repo, navigate to ``/modules/config_template.json``. Open that file in a text editor of your choice. Make any changes you'd like to customize the bot - changing the Owner ID is highly recommended. After that, rename the file to ``config.json``. Rename ``example.env`` to ``.env`` using the command line. To fill in the ``token`` field, and add your token as a string. Finally, if you wish to use message logging features, rename ``guilds_template.json`` to ``guilds.json``. No further modification is required.
