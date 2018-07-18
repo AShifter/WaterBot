@@ -7,7 +7,7 @@ module.exports.run = (client, message, args) =>
 	var responseEmbed = new Discord.RichEmbed()
 	var content = fs.readFileSync('./modules/guilds.json');
 	let arrayOfObjects = JSON.parse(content);
-	if (arrayOfObjects.guilds[message.guild.id] == null && arrayOfObjects.guilds[message.guild.id].chatLogChannel == null)
+	if (arrayOfObjects.guilds[message.guild.id] == null)
 	{
 		arrayOfObjects.guilds[message.guild.id] = {};
 		fs.writeFileSync('./modules/guilds.json', JSON.stringify(arrayOfObjects), 'utf8');

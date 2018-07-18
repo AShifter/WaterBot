@@ -58,6 +58,9 @@ module.exports.messageDelete = async (client, message, conf) =>
 
 module.exports.guildCreate = async (guild) =>
 {
+    try {client.user.setActivity(`on ${client.guilds.size} servers`)}
+    catch (e){console.log(e)}
+    console.log(`Joined Guild ${guild.name}, ${guild.id}`)
     fs.readFile('./modules/guilds.json', function (err, content)
     {
         if (err) console.log(err);
@@ -73,4 +76,11 @@ module.exports.guildCreate = async (guild) =>
             );
         }
     });
+
+    module.exports.guildDelete = async (guild) =>
+    {
+        try {client.user.setActivity(`on ${client.guilds.size} servers`)}
+        catch (e){console.log(e)}
+        console.log(`Left Guild ${guild.name}, ${guild.id}`)
+    }
 }

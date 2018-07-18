@@ -24,10 +24,9 @@ fs.readdir("./modules/commands/", (err, files) =>
 client.on('ready', () =>
 {
   console.log("Connected to Discord! Client ID: " + client.user.id);
+  // If you want to grab presence from a JSON array
   var randomGame = conf.presence[Math.floor(Math.random() * conf.presence.length)];
-  console.log("Set Game to: " + randomGame);
-  try {client.user.setActivity(randomGame)}
-  catch (e){console.log(e)}
+  console.log(`Set Game to: on ${client.guilds.size} servers`);
 });
 
 // messageSent Event
@@ -46,7 +45,14 @@ client.on('messageDelete', message =>
   Events.messageDelete(client, message, conf);
 });
 
+// guildCreate Event
 client.on('guildCreate', guild =>
+{
+  Events.guildCreate(guild);
+});
+
+// guildDelete Event
+client.on('guildDelete', guild =>
 {
   Events.guildCreate(guild);
 });
