@@ -1,5 +1,5 @@
 # WaterBot Mini
-A ridiculous way to prove that you can write a modular Discord bot in 10 lines.
+A ridiculous way to prove that you can write a modular Discord bot in 8 lines.
 
 ## Setup
 After cloning the repo, open ``bot.js``. Open that file in a text editor of your choice. In the ``client.login("BOT_TOKEN");`` call at the bottom of the file, paste your Bot User's token, preserving the double-quotes. Make any other changes if desired, such as changing the bot's prefix.
