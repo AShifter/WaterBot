@@ -1,16 +1,13 @@
-const conf = require("../config.json");
+const dotenv = require("dotenv").config({path:"./.env"});
 const moment = require('moment');
 require('moment-duration-format');
 const Discord = require("discord.js")
-const { version } = require('discord.js');
+const CoreOutput = require("../core/CoreOutput.js")
+
 module.exports.run = async (client, message, args) =>
 {
     const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
-    var embed = new Discord.RichEmbed()
-.setAuthor(`${conf.name} ${conf.version} | Uptime`)
-.setColor(conf.embedColor)
-.setDescription(`${conf.name} has been online for **${duration}**.`)
-    message.channel.send(embed);
+    CoreOutput.SendEmbed(message.channel, process.env.embedColor, "Uptime", `${process.env.name} has been online for **${duration}**.`, "");
 }
 module.exports.help = 
 {

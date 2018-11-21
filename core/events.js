@@ -1,6 +1,5 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const conf = require("../config.json")
 
 module.exports.messageSent = async (client, message, conf) =>
 {
