@@ -53,7 +53,7 @@ client.on('messageDelete', message =>
 // guildCreate Event
 client.on('guildCreate', guild =>
 {
-  events.guildCreate(guild);
+  events.guildCreate(client, guild);
 });
 
 // guildDelete Event
