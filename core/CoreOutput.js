@@ -1,7 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
 const colors = require("colors/safe")
-const dotenv = require("dotenv").config({path:"../data/.env"});
 
 module.exports.Log = async (status, message) =>
 {
@@ -28,10 +27,10 @@ module.exports.Log = async (status, message) =>
   }
 }
 
-module.exports.SendEmbed = async (channel, color, title, text, footer, thumbnail) =>
+module.exports.SendEmbed = async (client, channel, color, title, text, footer, thumbnail) =>
 {
   var embed = new Discord.RichEmbed()
-  .setAuthor(`${process.env.name} ${process.env.version} | ${title}`)
+  .setAuthor(`${client.botConfig.name} ${client.botConfig.version} | ${title}`)
   .setDescription(text)
   .setFooter(footer)
   .setThumbnail(thumbnail)

@@ -1,4 +1,3 @@
-const dotenv = require("dotenv").config({path:"../data/.env"});
 const fs = require("fs");
 const Discord = require("discord.js");
 
@@ -6,11 +5,11 @@ module.exports.messageSent = async (client, message) =>
 {
     let text = message.content;
     let args = text.split(" ").slice(1);
-    let cmd = client.commands.get(text.split(" ")[0].slice(process.env.prefix.length))
+    let cmd = client.commands.get(text.split(" ")[0].slice(client.botConfig.prefix.length))
     if (cmd){cmd.run(client, message, args)}
     else
     {
-      message.reply(`:no_entry_sign: That command doesn't exist. To get a list of commands, type \`${process.env.prefix}help.\``);
+      message.reply(`:no_entry_sign: That command doesn't exist. To get a list of commands, type \`${client.botConfig.prefix}help.\``);
     }
 }
 
@@ -36,7 +35,7 @@ module.exports.messageDelete = async (client, message) =>
             var e = new Discord.RichEmbed()
                 .setTitle(':wastebasket: Message Deleted')
                 .setDescription(" **A message was deleted by " + message.author.username + " in ** <#" + message.channel.id + ">.")
-                .setColor(process.env.embedColor)
+                .setColor(client.botConfig.embedColor)
 
             if (message.cleanContent.length) {
                 e.addField('Message Content:', message.cleanContent);
@@ -68,10 +67,10 @@ module.exports.guildCreate = async (client, guild) =>
             if (arrayOfObjects.guilds[guild.id] == null) {
                 guild.channels.find(c => c.name == 'general').send(
                 new Discord.RichEmbed()
-                .setTitle(`Welcome to ${process.env.name}!`)
-                .setDescription(`Hello! I'm ${process.env.name}, a Discord moderation bot. Before you can use extended features like message logging, you will have to run setup. To do so, run \`\`${process.env.prefix}setup\`\`. Only \<\@${guild.owner.id}\> or someone with \`\`Administrator\`\` permissions may run this command. If you run setup, we will automatically cache your guild. This will allow me to log all deleted and edited messages on your server, as well as user information. Sensitive information will not leave this server. If you do not agree with these terms, this bot will leave the server.`)
-                .setColor(process.env.embedColor)
-                .setFooter(`${process.env.name} ${process.env.version}`)
+                .setTitle(`Welcome to ${client.botConfig.name}!`)
+                .setDescription(`Hello! I'm ${client.botConfig.name}, a Discord moderation bot. Before you can use extended features like message logging, you will have to run setup. To do so, run \`\`${client.botConfig.prefix}setup\`\`. Only \<\@${guild.owner.id}\> or someone with \`\`Administrator\`\` permissions may run this command. If you run setup, we will automatically cache your guild. This will allow me to log all deleted and edited messages on your server, as well as user information. Sensitive information will not leave this server. If you do not agree with these terms, this bot will leave the server.`)
+                .setColor(client.botConfig.embedColor)
+                .setFooter(`${client.botConfig.name} ${client.botConfig.version}`)
                 .setTimestamp()
             );
         }

@@ -1,68 +1,47 @@
 const Discord = require('discord.js')
 const fs = require('fs');
+const CoreOutput = require("../core/CoreOutput.js")
 
 module.exports.run = async (client, message, args) =>
 {
-    let banUser = args.mentions.members.first();
-    if(message.member.hasPermission("BAN_MEMBERS"))
-    {
-        var embed = new Discord.RichEmbed()
-        .setAuthor(`${conf.name} ${conf.version} | Ban`)
-        .setDescription(`Please enter a reason for banning <@${banUser.id}>, or type \`\`cancel\`\`.`)
-        .setColor(conf.embedColor)
-        .setFooter(`${conf.name} ${conf.version}`)
-        .setTimestamp();
-        message.channel.send(embed).then(() =>
+	let banUser = message.mentions.members.first();
+	if (message.member.hasPermission("BAN_MEMBERS"))
+	{
+        CoreOutput.SendEmbed(client, message.channel, client.botConfig.embedColor, "Ban",
+        `Please enter a reason for banning <@${banUser.id}>, or type \`\`cancel\`\`.`,
+        `${client.botConfig.name} ${client.botConfig.version}`, "").then(() =>
         {
-            message.channel.awaitMessages(m => m.author = message.author,{max: 1,maxMatches: 1}).then((reason) =>
-            {
-                if(reason.content != "cancel")
+            message.channel.awaitMessages(m => m.author = message.author,
                 {
-                    var embed = new Discord.RichEmbed()
-                    .setAuthor(`${conf.name} ${conf.version} | Ban`)
-                    .setDescription(`<@${banUser.id}> has been banned from the server for the following reason; \`\`${reason.content}\`\``)
-                    .setColor(conf.embedColor)
-                    .setFooter(`${conf.name} ${conf.version}`)
-                    .setTimestamp();
-                    message.guild.ban(banUser, reason.content).then((promise) => 
-                    {
-                            message.channel.send(embed)
-                    }).catch((e) => 
-                    {
-                        var embed = new Discord.RichEmbed()
-                            .setAuthor(`${conf.name} ${conf.version} | Ban`)
-                            .setDescription(`<@${banUser.id}> could not be banned due to the following error; \`\`${e}\`\` - Make sure I have permission to ban this user.`)
-                            .setColor(conf.embedColor)
-                            .setFooter(`${conf.name} ${conf.version}`)
-                            .setTimestamp();
-                        message.channel.send(embed)
-                    })  
-                }else if (reason.content == "cancel")
+                    max: 1,
+                    maxMatches: 1
+                })
+                .then((collected) =>
                 {
-                    var embed = new Discord.RichEmbed()
-                    .setAuthor(`${conf.name} ${conf.version} | Ban`)
-                    .setDescription(`Ban cancelled.`)
-                    .setColor(conf.embedColor)
-                    .setFooter(`${conf.name} ${conf.version}`)
-                    .setTimestamp();
-                    message.channel.send(embed);
-                }
-            }).catch((e) =>
-            {
-                console.log(e);
-            })
-        });
-    }
-    else if(!message.member.hasPermission("BAN_MEMBERS"))
-    {
-        var embed = new Discord.RichEmbed()
-        .setAuthor(`${conf.name} ${conf.version} | Ban`)
-        .setDescription(`<@${message.author.id}>, you don't have permission to use that command!`)
-        .setColor(conf.embedColor)
-        .setFooter(`${conf.name} ${conf.version}`)
-        .setTimestamp();
-		message.channel.send(embed)
-    }
+                    //banUser.ban(collected.content)
+                    message.channel.send("banne TIem" + collected.content)
+                        .then((promise) =>
+                        {
+                            CoreOutput.SendEmbed(client, message.channel, client.botConfig.embedColor, "Ban",
+                            `<@${banUser.id}> has been banned from the server for the following reason; \`\`${collected.content}\`\``,
+                            `${client.botConfig.name} ${client.botConfig.version}`, "");
+                        })
+                        .catch((e) =>
+                        {
+                            CoreOutput.SendEmbed(client, message.channel, client.botConfig.embedColor, "Ban",
+                            `<@${banUser.id}> could not be banned due to the following error; \`\`${e}\`\` - Make sure I have permission to kick this user.`,
+                            `${client.botConfig.name} ${client.botConfig.version}`, "");
+                        })
+                });
+        })
+
+	}
+	else if (!message.member.hasPermission("BAN_MEMBER"))
+	{
+        CoreOutput.SendEmbed(client, message.channel, client.botConfig.embedColor, "Ban",
+        `<@${message.author.id}>, you don't have permission to use that command!`,
+        `${client.botConfig.name} ${client.botConfig.version}`, "");
+	}
 }
 
 module.exports.help =

@@ -1,8 +1,7 @@
 module.exports.run = async (client, message, args) =>
 { 
-    const conf = require('../config.json')
     const Discord = require('discord.js');
-    if(message.author.id == conf.ownerID)
+    if(message.author.id == client.botConfig.ownerID)
     {
 		module.exports.error = "**:no_entry_sign: ERROR** "
 		module.exports.fgRed = "\x1b[1m\x1b[31m"
@@ -24,8 +23,8 @@ module.exports.run = async (client, message, args) =>
 		.setDescription("Here's the eval result!")
 		.addField(":inbox_tray: Input:", `\`\`\`js\n${code}\n\`\`\``)
 		.addField(":outbox_tray: Output:", `\`\`\`js\n${clean(evaled)}\n\`\`\``)
-		.setColor(conf.embedColor)
-		.setFooter(conf.name + " " + conf.version, client.user.avatarURL)
+		.setColor(client.botConfig.embedColor)
+		.setFooter(client.botConfig.name + " " + client.botConfig.version, client.user.avatarURL)
 		.setTimestamp()
       message.channel.send({ embed });
 		} catch(err) {

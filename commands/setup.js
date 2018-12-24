@@ -1,4 +1,3 @@
-const dotenv = require("dotenv").config({path:"../data/.env"});
 const Discord = require('discord.js')
 const fs = require('fs');
 
@@ -12,34 +11,34 @@ module.exports.run = (client, message, args) =>
 		arrayOfObjects.guilds[message.guild.id] = {};
 		fs.writeFileSync('../data/guilds.json', JSON.stringify(arrayOfObjects), 'utf8');
         var embed = new Discord.RichEmbed()
-        .setTitle(`${process.env.name} ${process.env.version} | Setup`)
+        .setTitle(`${client.botConfig.name} ${client.botConfig.version} | Setup`)
         .setDescription(`Thank you for running Setup. Your guild has been cached!`)
-		.setColor(process.env.embedColor)
-		.setFooter(`${process.env.name} ${process.env.version}`)
+		.setColor(client.botConfig.embedColor)
+		.setFooter(`${client.botConfig.name} ${client.botConfig.version}`)
         .setTimestamp();
 		message.channel.send(embed);
 
 		// Setup Response
-		responseEmbed.setAuthor(`${process.env.name} ${process.env.version} | Setup`)
+		responseEmbed.setAuthor(`${client.botConfig.name} ${client.botConfig.version} | Setup`)
 		responseEmbed.setDescription(`Next, Please send the name of the channel you wish to use for message logging.\n \(i.e. \`\`#logging\`\`\).`)
-		responseEmbed.setColor(process.env.embedColor)
-		responseEmbed.setFooter(`${process.env.name} ${process.env.version}`)
+		responseEmbed.setColor(client.botConfig.embedColor)
+		responseEmbed.setFooter(`${client.botConfig.name} ${client.botConfig.version}`)
 		responseEmbed.setTimestamp();
 	}
 	else if (arrayOfObjects.guilds[message.guild.id] != null && arrayOfObjects.guilds[message.guild.id].chatLogChannel == null)
 	{
-		responseEmbed.setAuthor(`${process.env.name} ${process.env.version} | Setup`)
+		responseEmbed.setAuthor(`${client.botConfig.name} ${client.botConfig.version} | Setup`)
 		responseEmbed.setDescription(`That's odd! It looks like we already have your server in our database, but you haven't setup a logging channel. Please send the name of the channel you wish to use for message logging.\n \(i.e. \`\`#logging\`\`\).`)
-		responseEmbed.setColor(process.env.embedColor)
-		responseEmbed.setFooter(`${process.env.name} ${process.env.version}`)
+		responseEmbed.setColor(client.botConfig.embedColor)
+		responseEmbed.setFooter(`${client.botConfig.name} ${client.botConfig.version}`)
 		responseEmbed.setTimestamp();
 	}
 	else if (arrayOfObjects.guilds[message.guild.id] != null && arrayOfObjects.guilds[message.guild.id].chatLogChannel != null)
 	{
-		responseEmbed.setAuthor(`${process.env.name} ${process.env.version} | Setup`)
+		responseEmbed.setAuthor(`${client.botConfig.name} ${client.botConfig.version} | Setup`)
 		responseEmbed.setDescription(`That's odd! It looks like we already have your server in our database, and a logging channel. If you need to, send the name of the channel you wish to use for message logging and I'll replace it for you.\n \(i.e. \`\`#logging\`\`\).`)
-		responseEmbed.setColor(process.env.embedColor)
-		responseEmbed.setFooter(`${process.env.name} ${process.env.version}`)
+		responseEmbed.setColor(client.botConfig.embedColor)
+		responseEmbed.setFooter(`${client.botConfig.name} ${client.botConfig.version}`)
 		responseEmbed.setTimestamp();
 	}
 	
@@ -60,10 +59,10 @@ module.exports.run = (client, message, args) =>
 				fs.writeFileSync("../data/guilds.json", JSON.stringify(arrayOfObjects), 'utf-8');
 			})
 			var embed = new Discord.RichEmbed()
-			.setAuthor(`${process.env.name} ${process.env.version} | Setup`)
-			.setColor(process.env.embedColor)
+			.setAuthor(`${client.botConfig.name} ${client.botConfig.version} | Setup`)
+			.setColor(client.botConfig.embedColor)
 			.setDescription(`Success! I am now using <#${cl.id}> for message logging.`)
-			.setFooter(`${process.env.name} ${process.env.version}`)
+			.setFooter(`${client.botConfig.name} ${client.botConfig.version}`)
 			.setTimestamp()
 			message.channel.send(embed)}).catch((e) =>
 			{

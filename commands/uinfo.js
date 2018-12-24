@@ -1,6 +1,5 @@
 module.exports.run = async (client, message, args) =>
 {
-    const conf = require('../config.json');
     const Discord = require('discord.js');
     let pinged = message.guild.member(message.mentions.users.first());
     try 
@@ -8,7 +7,7 @@ module.exports.run = async (client, message, args) =>
         if (pinged == null) 
         {
             var embed = new Discord.RichEmbed()
-                .setColor(conf.embedColor)
+                .setColor(client.botConfig.embedColor)
                 .setThumbnail(message.author.avatarURL)
                 .setTitle(`Information about ${message.author.username}:`)
                 .addField("Account Information ", `**Username:** ${message.author.username}\r\n**User Discriminator:** #${message.author.discriminator}\r\n**User ID:** ${message.author.id}`)
@@ -20,7 +19,7 @@ module.exports.run = async (client, message, args) =>
         else
         {
             var embed = new Discord.RichEmbed()
-                .setColor(conf.embedColor)
+                .setColor(client.botConfig.embedColor)
                 .setThumbnail(pinged.user.avatarURL)
                 .setTitle(`Information about ${pinged.user.username}:`)
                 .addField("Account Information ", `**Username:** ${pinged.user.username}\r\n**User Discriminator:** ${pinged.user.discriminator}\r\nUser ID: ${pinged.user.id}`)

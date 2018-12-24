@@ -7,10 +7,10 @@ module.exports.run = async (client, message, args) =>
 	if (message.member.hasPermission("KICK_MEMBERS"))
 	{
 		var embed = new Discord.RichEmbed()
-			.setAuthor(`${conf.name} ${conf.version} | Kick`)
+			.setAuthor(`${client.botConfig.name} ${client.botConfig.version} | Kick`)
 			.setDescription(`Please enter a reason for kicking <@${kickUser.id}>, or type \`\`cancel\`\`.`)
-			.setColor(conf.embedColor)
-			.setFooter(`${conf.name} ${conf.version}`)
+			.setColor(client.botConfig.embedColor)
+			.setFooter(`${client.botConfig.name} ${client.botConfig.version}`)
 			.setTimestamp();
 		message.channel.send(embed)
 		message.channel.awaitMessages(m => m.author = message.author,
@@ -21,10 +21,10 @@ module.exports.run = async (client, message, args) =>
 			.then((reason) =>
 			{
 				var embed = new Discord.RichEmbed()
-					.setAuthor(`${conf.name} ${conf.version} | Kick`)
+					.setAuthor(`${client.botConfig.name} ${client.botConfig.version} | Kick`)
 					.setDescription(`<@${kickUser.id}> has been kicked from the server for the following reason; \`\`${reason.content}\`\``)
-					.setColor(conf.embedColor)
-					.setFooter(`${conf.name} ${conf.version}`)
+					.setColor(client.botConfig.embedColor)
+					.setFooter(`${client.botConfig.name} ${client.botConfig.version}`)
 					.setTimestamp();
 				kickUser.kick(reason.content)
 					.then((promise) =>
@@ -34,10 +34,10 @@ module.exports.run = async (client, message, args) =>
 					.catch((e) =>
 					{
 						var embed = new Discord.RichEmbed()
-							.setAuthor(`${conf.name} ${conf.version} | Kick`)
+							.setAuthor(`${client.botConfig.name} ${client.botConfig.version} | Kick`)
 							.setDescription(`<@${kickUser.id}> could not be kicked due to the following error; \`\`${e}\`\` - Make sure I have permission to kick this user.`)
-							.setColor(conf.embedColor)
-							.setFooter(`${conf.name} ${conf.version}`)
+							.setColor(client.botConfig.embedColor)
+							.setFooter(`${client.botConfig.name} ${client.botConfig.version}`)
 							.setTimestamp();
 						message.channel.send(embed)
 					})
@@ -50,10 +50,10 @@ module.exports.run = async (client, message, args) =>
 	else if (!message.member.hasPermission("KICK_MEMBER"))
 	{
 		var embed = new Discord.RichEmbed()
-			.setAuthor(`${conf.name} ${conf.version} | Kick`)
+			.setAuthor(`${client.botConfig.name} ${client.botConfig.version} | Kick`)
 			.setDescription(`<@${message.author.id}>, you don't have permission to use that command!`)
-			.setColor(conf.embedColor)
-			.setFooter(`${conf.name} ${conf.version}`)
+			.setColor(client.botConfig.embedColor)
+			.setFooter(`${client.botConfig.name} ${client.botConfig.version}`)
 			.setTimestamp();
 		message.channel.send(embed)
 	}
