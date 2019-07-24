@@ -30,7 +30,7 @@ module.exports.Log = async (status, message) =>
 module.exports.SendEmbed = async (client, channel, color, title, text, footer, thumbnail) =>
 {
   var embed = new Discord.RichEmbed()
-  .setAuthor(`${client.botConfig.name} ${client.botConfig.version} | ${title}`)
+  .setAuthor(`${client.botConfig.botName} ${client.botConfig.botVersion} | ${title}`)
   .setDescription(text)
   .setFooter(footer)
   .setThumbnail(thumbnail)

@@ -9,11 +9,11 @@ module.exports.getPermissionLevel = async (member, callback) =>
   }
 
   if(
-  member.hasPermission("KICK_MEMBERS") &&
-  member.hasPermission("BAN_MEMBERS") &&
-  member.hasPermission("MANAGE_NICKNAMES") &&
-  member.hasPermission("MANAGE_CHANNELS") &&
-  member.hasPermission("MANAGE_MESSAGES"))
+    member.hasPermission("KICK_MEMBERS") &&
+    member.hasPermission("BAN_MEMBERS") &&
+    member.hasPermission("MANAGE_NICKNAMES") &&
+    member.hasPermission("MANAGE_CHANNELS") &&
+    member.hasPermission("MANAGE_MESSAGES"))
   {
     permLevels.push(2)
   }
